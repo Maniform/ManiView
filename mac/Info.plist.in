@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>CFBundleName</key>
+  <string>@APP_NAME@</string>
+
+  <key>CFBundleIdentifier</key>
+  <string>com.manicorp.@APP_NAME@</string>
+
+  <key>CFBundleVersion</key>
+  <string>1.0</string>
+
+  <key>CFBundleIconFile</key>
+  <string>icon</string>
+
+  <key>CFBundleExecutable</key>
+  <string>@EXECUTABLE_NAME@</string>
+  <key>CFBundleDocumentTypes</key>
+  <array>
+    <dict>
+      <key>CFBundleTypeName</key>
+      <string>Images</string>
+      <key>LSItemContentTypes</key>
+      <array>
+        <string>public.image</string>
+      </array>
+      <key>CFBundleTypeRole</key>
+      <string>Viewer</string> <!-- ou "Editor" si ton app édite -->
+      <key>LSHandlerRank</key>
+      <string>Owner</string>
+    </dict>
+  </array>
+
+</dict>
+</plist>
