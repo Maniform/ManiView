@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.19)
-project(ManiView LANGUAGES CXX)
+project(ManiView LANGUAGES CXX VERSION 1.1)
 
 find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets)
 
