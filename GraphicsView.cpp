@@ -14,7 +14,8 @@ GraphicsView::GraphicsView(QWidget* parent)
 	, scaled(false)
 	, scaleMinMax(0.1f, 3.f)
 {
-	setScene(&scene);
+	setScene(&current_scene);
+	scene().setBackgroundBrush(QBrush(Qt::darkGray));
 }
 
 GraphicsView::~GraphicsView()
@@ -43,7 +44,7 @@ void GraphicsView::openFile(const QString& fileName)
 			filePath = fileName;
 			if (!pixmapItem)
 			{
-				pixmapItem = scene.addPixmap(pixmap);
+				pixmapItem = current_scene.addPixmap(pixmap);
 			}
 			else
 			{
@@ -82,7 +83,7 @@ void GraphicsView::fitImage(bool keepTransform)
 			static_cast<float>(horizontalScrollBar()->value()) / horizontalScrollBar()->maximum(),
 			static_cast<float>(verticalScrollBar()->value()) / verticalScrollBar()->maximum()
 		);
-		scene.setSceneRect(pixmapItem->boundingRect());
+		current_scene.setSceneRect(pixmapItem->boundingRect());
 		fitInView(pixmapItem, Qt::KeepAspectRatio);
 		if (keepTransform && scaled)
 		{
@@ -111,7 +112,7 @@ void GraphicsView::clear()
 {
 	if (pixmapItem)
 	{
-		scene.clear();
+		current_scene.clear();
 		pixmapItem = nullptr;
 	}
 }

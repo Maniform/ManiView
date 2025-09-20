@@ -15,6 +15,7 @@ public:
 
 	void openFile(const QString& fileName);
 	QString getFilePath() const { return filePath; }
+	QGraphicsScene& scene() { return current_scene; }
 	void fitImage(bool keepTransform = true);
 	void nextFrame();
 	void clear();
@@ -28,7 +29,7 @@ private:
 	QString filePath;
 	QImageReader imageReader;
 	QGraphicsPixmapItem* pixmapItem;
-	QGraphicsScene scene;
+	QGraphicsScene current_scene;
 	QMap<QString, QString> currentFolderImages;
 	bool scaled;
 	QVector2D scaleMinMax;

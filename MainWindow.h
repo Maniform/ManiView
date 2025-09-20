@@ -26,8 +26,14 @@ private:
 	Ui::MainWindow* ui;
 
 	void resizeEvent(QResizeEvent* event) override;
+	bool event(QEvent* event) override;
+
+	QMargins layoutMargins;
+	QMargins graphicsViewMargins;
 
 private slots:
 	void on_actionOpen_triggered();
+
+	void fitImage() const;
 };
 #endif // MAINWINDOW_H

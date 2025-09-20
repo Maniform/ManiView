@@ -17,6 +17,9 @@
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="GraphicsView" name="graphicsView">
+      <property name="frameShape">
+       <enum>QFrame::Shape::NoFrame</enum>
+      </property>
       <property name="transformationAnchor">
        <enum>QGraphicsView::ViewportAnchor::AnchorUnderMouse</enum>
       </property>
