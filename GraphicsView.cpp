@@ -45,6 +45,7 @@ void GraphicsView::openFile(const QString& fileName)
 			if (!pixmapItem)
 			{
 				pixmapItem = current_scene.addPixmap(pixmap);
+				pixmapItem->setTransformOriginPoint(pixmapItem->boundingRect().center());
 			}
 			else
 			{
@@ -91,6 +92,17 @@ void GraphicsView::fitImage(bool keepTransform)
 			horizontalScrollBar()->setValue(scrollBars.x() * horizontalScrollBar()->maximum());
 			verticalScrollBar()->setValue(scrollBars.y() * verticalScrollBar()->maximum());
 		}
+	}
+}
+
+void GraphicsView::rotateRight()
+{
+	if (pixmapItem)
+	{
+		float rotation = pixmapItem->rotation() + 90.f;
+		rotation = std::fmod(rotation, 360.f);
+		pixmapItem->setRotation(rotation);
+		fitImage();
 	}
 }
 

@@ -17,6 +17,7 @@ public:
 	QString getFilePath() const { return filePath; }
 	QGraphicsScene& scene() { return current_scene; }
 	void fitImage(bool keepTransform = true);
+	void rotateRight();
 	void nextFrame();
 	void clear();
 

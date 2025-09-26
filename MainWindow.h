@@ -33,6 +33,7 @@ private:
 
 private slots:
 	void on_actionOpen_triggered();
+	void on_actionRotateRight_triggered();
 
 	void fitImage() const;
 };

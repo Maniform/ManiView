@@ -109,6 +109,11 @@ void MainWindow::on_actionOpen_triggered()
 	}
 }
 
+void MainWindow::on_actionRotateRight_triggered()
+{
+	ui->graphicsView->rotateRight();
+}
+
 void MainWindow::fitImage() const
 {
 	ui->graphicsView->fitImage();
