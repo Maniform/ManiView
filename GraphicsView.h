@@ -30,7 +30,7 @@ private:
 	QImageReader imageReader;
 	QGraphicsPixmapItem* pixmapItem;
 	QGraphicsScene current_scene;
-	QMap<QString, QString> currentFolderImages;
+	QMap<QString, QString> currentFolderImagesAndPath;
 	bool scaled;
 	QVector2D scaleMinMax;
 

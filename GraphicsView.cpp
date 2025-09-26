@@ -64,7 +64,7 @@ void GraphicsView::openFile(const QString& fileName)
 			const QFileInfo nextFileInfo(dirIterator.next());
 			if (supportedImageFormats.contains(nextFileInfo.suffix()))
 			{
-				currentFolderImages[nextFileInfo.fileName()] = nextFileInfo.filePath();
+				currentFolderImagesAndPath[nextFileInfo.fileName()] = nextFileInfo.filePath();
 			}
 		}
 	}
@@ -167,10 +167,10 @@ void GraphicsView::loadPreviousImage()
 	if (pixmapItem)
 	{
 		const QFileInfo fileInfo(filePath);
-		QMap<QString, QString>::iterator fileIterator = currentFolderImages.find(fileInfo.fileName());
-		if (fileIterator == currentFolderImages.begin())
+		QMap<QString, QString>::iterator fileIterator = currentFolderImagesAndPath.find(fileInfo.fileName());
+		if (fileIterator == currentFolderImagesAndPath.begin())
 		{
-			fileIterator = std::prev(currentFolderImages.end());
+			fileIterator = std::prev(currentFolderImagesAndPath.end());
 		}
 		else
 		{
@@ -189,11 +189,18 @@ void GraphicsView::loadNextImage()
 	if (pixmapItem)
 	{
 		const QFileInfo fileInfo(filePath);
-		QMap<QString, QString>::iterator fileIterator = currentFolderImages.find(fileInfo.fileName());
-		++fileIterator;
-		if (fileIterator == currentFolderImages.end())
+		QMap<QString, QString>::iterator fileIterator = currentFolderImagesAndPath.find(fileInfo.fileName());
+		if (fileIterator == currentFolderImagesAndPath.end())
 		{
-			fileIterator = currentFolderImages.begin();
+			fileIterator = currentFolderImagesAndPath.begin();
+		}
+		else
+		{
+			++fileIterator;
+			if (fileIterator == currentFolderImagesAndPath.end())
+			{
+				fileIterator = currentFolderImagesAndPath.begin();
+			}
 		}
 
 		if (filePath != fileIterator.value())
